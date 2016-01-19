@@ -1,0 +1,31 @@
+<h1>Listing photos</h1>
+
+<table>
+  <tr>
+    <th>Image content type</th>
+    <th>Image content size</th>
+    <th>Image file name</th>
+    <th>Image updated at</th>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @photos.each do |photo| %>
+  <tr>
+    <td><%= photo.image_content_type %></td>
+    <td><%= photo.image_content_size %></td>
+    <td><%= photo.image_file_name %></td>
+    <td><%= photo.image_updated_at %></td>
+    <td><%= photo.name %></td>
+    <td><%= link_to 'Show', photo %></td>
+    <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
+    <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Photo', new_photo_path %>
