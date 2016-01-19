@@ -1,13 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Image content type:</b>
-  <%= @photo.image_content_type %>
+  <%= image_tag(@photo.image.url) %>
 </p>
 
 <p>
   <b>Image content size:</b>
-  <%= @photo.image_content_size %>
+  <%= @photo.image_file_size %>
 </p>
 
 <p>

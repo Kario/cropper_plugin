@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Image thumb</th>
     <th>Image content type</th>
     <th>Image content size</th>
     <th>Image file name</th>
@@ -14,8 +15,9 @@
 
 <% @photos.each do |photo| %>
   <tr>
+    <td><%= image_tag photo.image.url(:thumbnail) %></td>
     <td><%= photo.image_content_type %></td>
-    <td><%= photo.image_content_size %></td>
+    <td><%= photo.image_file_size %></td>
     <td><%= photo.image_file_name %></td>
     <td><%= photo.image_updated_at %></td>
     <td><%= photo.name %></td>
