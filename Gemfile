@@ -8,6 +8,7 @@ gem 'rails', '3.2.21'
 gem 'sqlite3'
 gem 'paperclip'
 gem 'simple_form'
+gem 'rails_cropperjs', :git => 'https://github.com/Kario/rails_cropperjs.git'
 
 # Gems used only for assets and not required
 # in production environments by default.

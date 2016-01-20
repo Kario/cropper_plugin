@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/Kario/rails_cropperjs.git
+  revision: a8720633f4aea5af2a654b3efbe75e40bde8bcf9
+  specs:
+    rails_cropperjs (0.0.1)
+      rails (~> 3.2.21)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -120,6 +127,7 @@ DEPENDENCIES
   jquery-rails
   paperclip
   rails (= 3.2.21)
+  rails_cropperjs!
   sass-rails (~> 3.2.3)
   simple_form
   sqlite3
