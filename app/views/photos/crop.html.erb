@@ -23,7 +23,9 @@
 <section id="cropper_previews">
   <h2 hidden>Preview Windows for cropping</h2>
   <h3>Main Preview</h3>
-  <div id="main_preview">
-  
+  <div id="main_preview_con">
+    <div id="main_preview">
+      <%= image_tag @photo.image(:original), :id => 'main_preview_img' %>
+    </div>
   </div>
 </section>

@@ -1,4 +1,4 @@
-var image, cropper;
+var image, cropper, main_prev;
 
 
 $(document).ready(function() {
@@ -15,8 +15,25 @@ $(document).ready(function() {
       $('#photo_crop_h').val(e.detail.height);
       $('#photo_crop_w').val(e.detail.width);
       
+      updatePreview(e);
+      
+      
+      
+      
+      
+      
     },
     zoomable: false
   });
 
 });
+
+function updatePreview(e) {
+  main_prev = $('#main_preview img');
+  var ratio = 16/9;
+  
+  main_prev.width(300);
+  //main_prev.height(e.detail.width/ratio);
+  main_prev.css('top', -(e.detail.y/9));
+  main_prev.css('left', -(e.detail.x/16));
+}
