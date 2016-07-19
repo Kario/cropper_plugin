@@ -4,6 +4,22 @@
   <%= image_tag @photo.image(:original), :id => 'img_crop', :class => ('img_crop_' + @photo.id.to_s) %>
 </section>
 
+<section id="photo_form">
+  <h2 hidden>Photo form</h2>
+  
+  <%= simple_form_for @photo do |f| %>
+    <%= f.input :crop_x  %>
+    <%= f.input :crop_y  %>
+    <%= f.input :crop_h  %>
+    <%= f.input :crop_w  %>
+    <%= f.input :crop_style, :input_html => { :value => 'medium' }  %>
+    
+    
+    <%= f.submit 'Crop Photo' %>
+  <% end %>
+
+</section>
+
 <section id="cropper_previews">
   <h2 hidden>Preview Windows for cropping</h2>
   <h3>Main Preview</h3>

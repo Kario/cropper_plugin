@@ -15,3 +15,16 @@
   }
 
 }
+
+#photo_form { 
+  width: 100%; float: left; margin-top: 30px; 
+  
+  form { 
+    width: 600px; display: flex; flex-wrap: wrap; justify-content: space-around;
+    div {
+      margin-left: 10px; float: left; height: 20px; margin-bottom: 8px;
+      input { width: 75px; float: left; }
+      label { width: 75px; float: left; }
+    }
+    }
+  }
