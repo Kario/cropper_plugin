@@ -2,7 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #photo_cropper_container {
-  width: 50vw;
+  width: 600px; float: left;
   img { max-width: 100%; }
+
+}
+
+#cropper_previews {
+  display: block; position: absolute; top: 30px; right: 50px;
+  #main_preview { 
+    display: block; width: 300px; border: 1px solid; height: 169px;
+    
+  }
 
 }
