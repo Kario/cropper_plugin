@@ -16,9 +16,16 @@
     
     
     <%= f.submit 'Crop Photo' %>
+    
+    
+<% f.object.image.styles.each do |style| %>
+  <%= style.first.to_s %>
+<% end %>
+    
   <% end %>
 
 </section>
+
 
 <section id="cropper_previews">
   <h2 hidden>Preview Windows for cropping</h2>
