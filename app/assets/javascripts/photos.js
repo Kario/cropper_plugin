@@ -6,7 +6,7 @@ $(document).ready(function() {
   //Basic usage copied from website 
   image = document.getElementById('img_crop');
   cropper = new Cropper(image, {
-    aspectRatio: 16 / 9,
+      aspectRatio: 1920 / 1080,
     crop: function(e) {
       //console.log('X: ' + e.detail.x + ' Y: ' + e.detail.y + ' Width: ' + e.detail.width + ' Height: ' + e.detail.height + ' ScaleX: ' + e.detail.scaleX + ' ScaleY: ' + e.detail.scaleY );
       //console.log(e);
@@ -25,7 +25,17 @@ $(document).ready(function() {
     },
     zoomable: false
   });
-
+  
+  $('#photo_crop_style').change(function(e){
+    var aString = e.target.value;
+    //aspectRatio = aspectString.split('x').filter(function(e) { return e.replace(/\D*|#*|>*|<*/g,'')} );
+    var aRatio = aString.replace(/[#|>|<]*/g, '').split('x');
+    cropper.setAspectRatio( parseInt(aRatio[0]) / parseInt(aRatio[1]) );
+    
+    console.log(e);
+    console.log(aRatio);
+  
+  })
 });
 
 function updatePreview(e) {
