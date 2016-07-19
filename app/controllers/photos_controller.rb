@@ -80,4 +80,11 @@ class PhotosController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def crop
+    @photo = Photo.find(params[:photo_id])
+  end
+  
+  
+  
 end

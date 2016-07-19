@@ -1,0 +1,8 @@
+<section id="photo_cropper_container">
+  <h2 hidden>Photo Cropper</h2>
+  <h3>Photo Crop for <%= @photo.id %></h3>
+  <%= image_tag @photo.image(:original), :id => 'img_crop', :class => ('img_crop_' + @photo.id.to_s) %>
+
+
+
+</section>

@@ -1,5 +1,8 @@
 CropperPlugin::Application.routes.draw do
-  resources :photos
+  resources :photos do
+    get 'crop/', to: 'photos#crop', as: :crop
+  end
+  
   
 
   # The priority is based upon order of creation:
