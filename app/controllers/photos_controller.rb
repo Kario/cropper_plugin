@@ -85,6 +85,10 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:photo_id])
   end
   
-  
+  private
+
+  def photo_params
+    params.require(:photo).permit(:crop_x, :crop_y, :crop_w, :crop_h, :crop_style)
+  end
   
 end
