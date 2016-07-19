@@ -5,13 +5,7 @@ $(document).ready(function() {
   var cropper = new Cropper(image, {
     aspectRatio: 16 / 9,
     crop: function(e) {
-      console.log(e.detail.x);
-      console.log(e.detail.y);
-      console.log(e.detail.width);
-      console.log(e.detail.height);
-      console.log(e.detail.rotate);
-      console.log(e.detail.scaleX);
-      console.log(e.detail.scaleY);
+      console.log('X: ' + e.detail.x + ' Y: ' + e.detail.y + ' Width: ' + e.detail.width + ' Height: ' + e.detail.height + ' ScaleX: ' + e.detail.scaleX + ' ScaleY: ' + e.detail.scaleY );
     }
   });
 
