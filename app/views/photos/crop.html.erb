@@ -12,7 +12,7 @@
     <%= f.input :crop_y  %>
     <%= f.input :crop_h  %>
     <%= f.input :crop_w  %>
-    <%= f.input :crop_style, :collection => f.object.image.styles.map{|style| style[0].to_s}, :input_html => { :value => 'medium' }  %>
+    <%= f.input :crop_style, :collection => f.object.image.styles.map{|style| [style[0].to_s, style[1][:geometry]]}, :input_html => { :value => 'medium' }  %>
     
     
     <%= f.submit 'Crop Photo' %>
