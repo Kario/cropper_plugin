@@ -7,7 +7,7 @@
 <section id="photo_form">
   <h2 hidden>Photo form</h2>
   
-  <%= simple_form_for @photo do |f| %>
+  <%= simple_form_for @photo, :url => photo_crop_picture_path(@photo) do |f| %>
     <%= f.input :crop_x  %>
     <%= f.input :crop_y  %>
     <%= f.input :crop_h  %>
@@ -37,5 +37,7 @@
   </div>
 </section>
 
-Cropped Image
-<%= image_tag @photo.image(:cropped) %>
+<section id="current_image">
+	Current Cropped Image <br />
+	<%= image_tag @photo.image(:cropped) %>
+</section>

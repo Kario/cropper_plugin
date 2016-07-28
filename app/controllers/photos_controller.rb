@@ -84,6 +84,20 @@ class PhotosController < ApplicationController
   def crop
     @photo = Photo.find(params[:photo_id])
   end
+	
+	def crop_picture
+		@photo = Photo.find(params[:photo_id])
+
+    respond_to do |format|
+      if @photo.update_attributes(params[:photo])
+        format.html { redirect_to photo_crop_path(@photo), notice: 'Photo was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @photo.errors, status: :unprocessable_entity }
+      end
+    end
+	end
   
   private
 

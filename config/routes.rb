@@ -1,6 +1,7 @@
 CropperPlugin::Application.routes.draw do
   resources :photos do
     get 'crop/', to: 'photos#crop', as: :crop
+		put 'crop_picture/', to: 'photos#crop_picture', as: :crop_picture
   end
   
   
