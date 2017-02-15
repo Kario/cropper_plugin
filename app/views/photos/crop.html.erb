@@ -6,13 +6,22 @@
 
 <section id="photo_form">
   <h2 hidden>Photo form</h2>
+  <script>
+  'use strict';
+    var styleHash = {
+      <% @photo.image.styles.map{|style| %>
+        "<%= style[0].to_s %>": "<%= raw style[1][:geometry] %>",
+      <% } %>
+   }
+  </script>
+
   
   <%= simple_form_for @photo, :url => photo_crop_picture_path(@photo) do |f| %>
     <%= f.input :crop_x  %>
     <%= f.input :crop_y  %>
     <%= f.input :crop_h  %>
     <%= f.input :crop_w  %>
-    <%= f.input :crop_style, :collection => f.object.image.styles.map{|style| [style[0].to_s, style[1][:geometry]]}, :input_html => { :value => 'medium' }  %>
+    <%= f.input :crop_style, :collection => f.object.image.styles.map{|style| style[0].to_s }, :input_html => { :value => 'medium' }  %>
     
     
     <%= f.submit 'Crop Photo' %>

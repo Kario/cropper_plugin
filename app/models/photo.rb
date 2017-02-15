@@ -22,6 +22,7 @@ class Photo < ActiveRecord::Base
     # don't crop if the user isn't updating the photo
     #   ...or if the photo is already being processed
     return unless (cropping? && !processing)
+    logger.debug "Processing cropped image"
     self.processing = true
     image.reprocess! crop_style.parameterize.underscore.to_sym
     self.processing = false

@@ -86,6 +86,7 @@ class PhotosController < ApplicationController
   end
 	
 	def crop_picture
+    logger.debug "What the hell?"
 		@photo = Photo.find(params[:photo_id])
 
     respond_to do |format|
@@ -93,6 +94,8 @@ class PhotosController < ApplicationController
         format.html { redirect_to photo_crop_path(@photo), notice: 'Photo was successfully updated.' }
         format.json { head :no_content }
       else
+        logger.debug('ERRRRRORRRRRR!')
+        flash[:error] = @photo.errors.full_messages
         format.html { render action: "edit" }
         format.json { render json: @photo.errors, status: :unprocessable_entity }
       end

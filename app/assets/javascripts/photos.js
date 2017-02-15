@@ -28,6 +28,7 @@ $(document).ready(function() {
   
   $('#photo_crop_style').change(function(e){
     var aString = e.target.value;
+    aString = styleHash[aString];
     //aspectRatio = aspectString.split('x').filter(function(e) { return e.replace(/\D*|#*|>*|<*/g,'')} );
     var aRatio = aString.replace(/[#|>|<]*/g, '').split('x');
     cropper.setAspectRatio( parseInt(aRatio[0]) / parseInt(aRatio[1]) );
