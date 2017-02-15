@@ -16,6 +16,11 @@
   }
 
 }
+#cropper_preview {
+  overflow: hidden;
+  width: 50px; 
+  height: 50px;
+}
 
 #current_image {
 	display: block; position: absolute; top: 400px; right: 50px;

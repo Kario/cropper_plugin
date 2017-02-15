@@ -23,7 +23,8 @@ $(document).ready(function() {
       
       
     },
-    zoomable: false
+    zoomable: false,
+    preview: "#cropper_preview"
   });
   
   $('#photo_crop_style').change(function(e){

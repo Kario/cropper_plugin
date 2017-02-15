@@ -42,8 +42,12 @@
       <%= image_tag @photo.image(:original), :id => 'main_preview_img' %>
     </div>
   </div>
-</section>
 
+  
+</section>
+<div id="cropper_preview">
+  
+  </div>
 <section id="current_image">
 	Current Cropped Image <br />
 	<%= image_tag @photo.image(:cropped) %>
