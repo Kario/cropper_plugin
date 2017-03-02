@@ -1,3 +1,4 @@
+'use strict';
 var image, cropper, main_prev, main_prev_box, screen_img;
 
 
@@ -14,17 +15,10 @@ $(document).ready(function() {
       $('#photo_crop_y').val(e.detail.y);
       $('#photo_crop_h').val(e.detail.height);
       $('#photo_crop_w').val(e.detail.width);
-      
-      updatePreview(e);
-      
-      
-      
-      
-      
-      
+      //updatePreview(e);
     },
     zoomable: false,
-    preview: "#cropper_preview"
+    preview: ".cropper_preview"
   });
   
   $('#photo_crop_style').change(function(e){
@@ -39,7 +33,7 @@ $(document).ready(function() {
   
   })
 });
-
+ /*
 function updatePreview(e) {
   //update the globals
   main_prev = $('#main_preview img');
@@ -74,3 +68,4 @@ function updatePreview(e) {
   main_prev.css('top', -topPos);
   main_prev.css('left', -leftPos);
 }
+*/

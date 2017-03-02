@@ -37,17 +37,10 @@
 <section id="cropper_previews">
   <h2 hidden>Preview Windows for cropping</h2>
   <h3>Main Preview</h3>
-  <div id="main_preview_con">
-    <div id="main_preview">
-      <%= image_tag @photo.image(:original), :id => 'main_preview_img' %>
-    </div>
+  <div id="main_preview" class="cropper_preview">
   </div>
-
-  
 </section>
-<div id="cropper_preview">
-  
-  </div>
+
 <section id="current_image">
 	Current Cropped Image <br />
 	<%= image_tag @photo.image(:cropped) %>
