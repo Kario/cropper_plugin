@@ -1,47 +1,43 @@
-<section id="photo_cropper_container">
-  <h2 hidden>Photo Cropper</h2>
-  <h3>Photo Crop for <%= @photo.id %></h3>
-  <%= image_tag @photo.image(:original), :id => 'img_crop', :class => ('img_crop_' + @photo.id.to_s) %>
-</section>
-
-<section id="photo_form">
-  <h2 hidden>Photo form</h2>
-  <script>
+<script>
   'use strict';
     var styleHash = {
       <% @photo.image.styles.map{|style| %>
         "<%= style[0].to_s %>": "<%= raw style[1][:geometry] %>",
       <% } %>
-   }
-  </script>
+   };
+ var image_path = "<%= @photo.image.url %>";
+</script>
 
-  
-  <%= simple_form_for @photo, :url => photo_crop_picture_path(@photo) do |f| %>
-    <%= f.input :crop_x  %>
-    <%= f.input :crop_y  %>
-    <%= f.input :crop_h  %>
-    <%= f.input :crop_w  %>
-    <%= f.input :crop_style, :collection => f.object.image.styles.map{|style| style[0].to_s }, :input_html => { :value => 'medium' }  %>
-    
-    
-    <%= f.submit 'Crop Photo' %>
-    
-    
+<section id="photo_crop"> 
+  <section id="photo_cropper_container">
+    <h2 hidden>Photo Cropper</h2>
+    <h3>Photo Crop for <%= @photo.id %></h3>
+    <%= image_tag @photo.image(:original), :id => 'img_crop', :class => ('img_crop_' + @photo.id.to_s) %>
+  </section>
 
-    
-  <% end %>
 
+  <section id="cropper_previews">
+    <h2 hidden>Preview Windows for cropping</h2>
+    <h3>Main Preview</h3>
+    <div id="main_preview" class="cropper_preview">
+    </div>
+
+    <section id="current_image">
+      Current Cropped Image <br />
+      <%= image_tag @photo.image(:cropped), :id => 'current_preview' %>
+    </section>
+  </section>
+
+  <section id="photo_form">
+    <h2 hidden>Photo form</h2>
+    <%= simple_form_for @photo, :url => photo_crop_picture_path(@photo) do |f| %>
+      <%= f.input :crop_x  %>
+      <%= f.input :crop_y  %>
+      <%= f.input :crop_h  %>
+      <%= f.input :crop_w  %>
+      <%= f.input :crop_style, :collection => f.object.image.styles.map{|style| style[0].to_s }, :input_html => { :value => 'medium' }  %>
+      <%= f.submit 'Crop Photo' %>
+    <% end %>
+  </section>
 </section>
 
-
-<section id="cropper_previews">
-  <h2 hidden>Preview Windows for cropping</h2>
-  <h3>Main Preview</h3>
-  <div id="main_preview" class="cropper_preview">
-  </div>
-</section>
-
-<section id="current_image">
-	Current Cropped Image <br />
-	<%= image_tag @photo.image(:cropped) %>
-</section>

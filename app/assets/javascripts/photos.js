@@ -27,7 +27,15 @@ $(document).ready(function() {
     //aspectRatio = aspectString.split('x').filter(function(e) { return e.replace(/\D*|#*|>*|<*/g,'')} );
     var aRatio = aString.replace(/[#|>|<]*/g, '').split('x');
     cropper.setAspectRatio( parseInt(aRatio[0]) / parseInt(aRatio[1]) );
-    
+    var currentImage = $('#current_preview');
+    Object.keys(styleHash).some(function(style) {
+        if (currentImage.prop("src").includes(style)) {
+          currentImage.prop("src", (currentImage.prop("src").replace(style, e.target.value)));
+          return true;
+        }
+    });
+
+
     console.log(e);
     console.log(aRatio);
   
