@@ -38,7 +38,21 @@ $(document).ready(function() {
     });  
   });
 });
+
+function hidePreview() {
+    var currentImage = $('#current_preview');
+    $('.loader').show();
+    currentImage.fadeOut();
+}
+
+function showPreview() {
+    var currentImage = $('#current_preview');
+    $('.loader').hide();
+    currentImage.fadeIn();
+}
  /*
+}
+}
 function updatePreview(e) {
   //update the globals
   main_prev = $('#main_preview img');
