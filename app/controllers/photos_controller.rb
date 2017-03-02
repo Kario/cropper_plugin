@@ -86,13 +86,13 @@ class PhotosController < ApplicationController
   end
 	
 	def crop_picture
-    logger.debug "What the hell?"
 		@photo = Photo.find(params[:photo_id])
 
     respond_to do |format|
       if @photo.update_attributes(params[:photo])
         format.html { redirect_to photo_crop_path(@photo), notice: 'Photo was successfully updated.' }
         format.json { head :no_content }
+        format.js
       else
         logger.debug('ERRRRRORRRRRR!')
         flash[:error] = @photo.errors.full_messages

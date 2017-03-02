@@ -28,18 +28,15 @@ $(document).ready(function() {
     var aRatio = aString.replace(/[#|>|<]*/g, '').split('x');
     cropper.setAspectRatio( parseInt(aRatio[0]) / parseInt(aRatio[1]) );
     var currentImage = $('#current_preview');
-    Object.keys(styleHash).some(function(style) {
+    var styleArray = Object.keys(styleHash);
+    styleArray.push("original");
+    styleArray.some(function(style) {
         if (currentImage.prop("src").includes(style)) {
-          currentImage.prop("src", (currentImage.prop("src").replace(style, e.target.value)));
+          currentImage.prop("src", (currentImage.prop("src").replace(/\?.*/g, "").replace(style, e.target.value))+ '?' + Math.random());
           return true;
         }
-    });
-
-
-    console.log(e);
-    console.log(aRatio);
-  
-  })
+    });  
+  });
 });
  /*
 function updatePreview(e) {

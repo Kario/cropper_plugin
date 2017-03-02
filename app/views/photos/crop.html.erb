@@ -24,13 +24,13 @@
 
     <section id="current_image">
       Current Cropped Image <br />
-      <%= image_tag @photo.image(:cropped), :id => 'current_preview' %>
+      <%= image_tag @photo.image(:original), :id => 'current_preview' %>
     </section>
   </section>
 
   <section id="photo_form">
     <h2 hidden>Photo form</h2>
-    <%= simple_form_for @photo, :url => photo_crop_picture_path(@photo) do |f| %>
+    <%= simple_form_for @photo, remote: true, :url => photo_crop_picture_path(@photo) do |f| %>
       <%= f.input :crop_x  %>
       <%= f.input :crop_y  %>
       <%= f.input :crop_h  %>

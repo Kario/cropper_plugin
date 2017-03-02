@@ -1,0 +1,3 @@
+'use strict';
+var currentImage = $('#current_preview');
+currentImage.prop("src", (currentImage.prop("src").replace(/\?.*/g, ""))+ '?' + Math.random());
